@@ -12,17 +12,18 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          <div class="logo">GYM<span class="logo-dot">.</span>FLOW</div>
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
     <q-drawer
       v-model="leftDrawerOpen"
-      show-if-above
-      bordered
+      elevated
+      @mouseleave="leftDrawerOpen = false"
+      :width="200"
+      :breakpoint="500"
+      :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
     >
       <q-list>
         <q-item-label
@@ -42,13 +43,18 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+    <q-footer class="text-center">
+      &copy; 2024 GYM.FLOW - All rights reserved. 
+      <div>v{{ version }}</div>
+    </q-footer>
   </q-layout>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import EssentialLink, { type EssentialLinkProps } from 'components/EssentialLink.vue';
-
+import packageJson from '../../package.json'
+const version = packageJson.version;
 const linksList: EssentialLinkProps[] = [
   {
     title: 'Docs',
