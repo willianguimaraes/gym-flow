@@ -264,8 +264,6 @@
     background: var(--card);
     border-radius: 24px 24px 0 0;
     width: 100%;
-    max-height: 92vh;
-    overflow-y: auto;
     animation: slideUp 0.28s cubic-bezier(0.22, 1, 0.36, 1);
     padding-bottom: 32px;
   }
@@ -499,4 +497,11 @@
     top: 50px;
     width: 100%;
     z-index: 200;
+    background-color: var(--ink);
+  }
+  .content-wrapper {
+    width: 100%;
+    margin-top: 120px;
+    z-index: 50;
+    overflow-y: auto;
   }

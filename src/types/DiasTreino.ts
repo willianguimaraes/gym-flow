@@ -1,10 +1,10 @@
-import type { Treino } from './Treino';
+// import type { Treino } from './Treino';
 
-export interface DiasTreino {
-   abbr: string;
-   fullName: string;
-   num: number;
-   isRest: boolean;
-   title: string;
-   treino?: Treino | null;
-}
+// export interface DiasTreino {
+//    abbr: string;
+//    fullName: string;
+//    num: number;
+//    isRest: boolean;
+//    title: string;
+//    treino?: Treino | null;
+// }

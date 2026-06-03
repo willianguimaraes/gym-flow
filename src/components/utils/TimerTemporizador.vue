@@ -28,6 +28,7 @@ function iniciar() {
   }
 
   intervalo = setInterval(() => {
+    console.log(props.titulo)
     if (props.titulo === 'Exercício' && props.tempoAlvo && segundos.value >= props.tempoAlvo) {
       emitSom();
       finalizar();
@@ -42,6 +43,7 @@ function pausar() {
     clearInterval(intervalo)
     intervalo = null
   }
+  segundos.value = 0
 }
 
 function finalizar() {
@@ -50,10 +52,10 @@ function finalizar() {
 }
 
 function emitSom() {
-    const audio = new Audio('src/assets/beep.wav');
-    audio.play().catch((erro) => {
-      console.error(erro)
-    })
+  const audio = new Audio('src/assets/beep.wav');
+  audio.play().catch((erro) => {
+    console.error(erro)
+  })
 }
 
 watch(
@@ -96,10 +98,6 @@ const progresso = computed(() => {
   return Math.min(segundos.value / props.tempoAlvo, 1)
 })
 
-function resetar() {
-  pausar()
-  segundos.value = 0
-}
 
 onBeforeUnmount(() => {
   pausar()
@@ -114,40 +112,12 @@ onBeforeUnmount(() => {
         {{ tempoFormatado }}
       </div>
 
-      <q-linear-progress
-        v-if="tempoAlvo > 0"
-        class="q-mt-md"
-        rounded
-        size="10px"
-        :value="progresso"
-      />
+      <q-linear-progress v-if="tempoAlvo > 0" class="q-mt-md" rounded size="10px" :value="progresso" />
 
-        <q-card-actions align="center" v-if="tempoAlvo > 0">
-          <q-btn
-            dense
-            round
-            color="positive"
-            icon="play_arrow"
-            @click="iniciar"
-          />
-
-          <q-btn
-            dense
-            round
-            color="warning"
-            text-color="black"
-            icon="pause"
-            @click="pausar"
-          />
-
-          <q-btn
-            dense
-            round
-            color="negative"
-            icon="restart_alt"
-            @click="resetar"
-          />
-        </q-card-actions>
+      <q-card-actions align="center" v-if="tempoAlvo > 0">
+        <q-btn dense round color="positive" icon="play_arrow" @click="iniciar" />
+        <q-btn dense round color="negative" text-color="black" icon="stop" @click="pausar" />
+      </q-card-actions>
     </q-card-section>
   </q-card>
 </template>
@@ -157,6 +127,7 @@ onBeforeUnmount(() => {
   border-radius: 16px;
   box-shadow: none !important;
 }
+
 .zero-padding {
   padding: 0 !important;
 }
