@@ -1,5 +1,5 @@
 <template>
-    <div class="header-pages" style="padding:20px">
+    <!-- <div class="header-pages" style="padding:20px">
         <header class="app-header">
             <div class="logo">{{ title }}</div>
             <br />
@@ -9,7 +9,8 @@
                 + Novo
             </button>
         </div>
-    </div>
+    </div> -->
+    <header-page :title="title" eyebrow="Catálogo de Exercicios" button="+ Novo" @acao-botao="openModal(null)" />
     <div class="content-wrapper">
         <div style="margin-top: 50px;">
             <!-- SEARCH -->
@@ -77,7 +78,7 @@ import type { ExercicioCatalogo } from 'src/types/ExercicioCatalogo';
 import { useNotify } from 'src/utils/NotificacaoUtils';
 import ModalCriarExercicioCatalogo from 'src/components/modais/ModalCriarExercicioCatalogo.vue';
 import { useQuasar } from 'quasar';
-
+import HeaderPage from 'src/components/HeaderPage.vue';
 const $q = useQuasar()
 const notify = useNotify();
 const title = 'Catálogo de exercícios';

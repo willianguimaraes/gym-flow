@@ -1,8 +1,8 @@
 import type { ExercicioCatalogo } from './ExercicioCatalogo';
 
 export interface TreinoExercicio {
-  id:          number;
-  treinoId:    number;
+  id?:          number | null;
+  treinoId?:    number | null;
   exercicioId: number;
   exercicio?:  ExercicioCatalogo;
   ordem:       number;
@@ -11,10 +11,11 @@ export interface TreinoExercicio {
   rest:        number;
   weight:      number;
   finalizado?: boolean;
+  observacao?: string;
 }
 
 export interface Treino {
-  id:           number;
+  id?:          number | null;
   usuarioId:    number;
   name:         string;
   category:     string;
@@ -29,8 +30,8 @@ export interface Treino {
 }
 
 export interface PlanoTreinoDia {
-  id:        number;
-  planoId:   number;
+  id?:       number | null;
+  planoId?:  number | null;
   abbr:      string;
   num:       number;
   diaSemana: number;
@@ -40,7 +41,7 @@ export interface PlanoTreinoDia {
 }
 
 export interface PlanoTreino {
-  id:         number;
+  id?:        number | null;
   usuarioId:  number;
   nome:       string;
   descricao?: string;

@@ -1,9 +1,25 @@
+import type { AxiosResponse } from 'axios';
 import { Service } from './service';
-// import type { AxiosResponse } from 'axios';
-// import type { DiasTreino } from '../types/DiasTreino';
-// import type { ApiResponse } from '../types/Response';
+import type { Treino } from '../types/Exercicios';
+import type { ApiResponse } from '../types/Response';
 
 export class TreinoService extends Service {
+
+  async getTreinos(): Promise<AxiosResponse<ApiResponse<Treino[]>>> {
+    return this.get('/api/treinos');
+  }
+
+  async getById(id: number): Promise<AxiosResponse<ApiResponse<Treino>>> {
+    return this.get<ApiResponse<Treino>>(`/api/treinos/${id}`);
+  }
+
+  async createTreino(data: Omit<Treino, 'id'>): Promise<AxiosResponse<ApiResponse<Treino>>> {
+    return this.post<ApiResponse<Treino>>('/api/treinos/', data);
+  }
+
+  async updateTreino(id: number, data: Partial<Treino>): Promise<AxiosResponse<ApiResponse<Treino>>> {
+      return this.patch<ApiResponse<Treino>>(`/api/treinos/${id}`, data);
+  }
   // /**
   //  * Retorna a programação de treinos da semana inteira
   //  */

@@ -8,7 +8,7 @@ interface CustomRequestConfig extends AxiosRequestConfig {
 export class Service {
   protected api: AxiosInstance;
   private readonly defaultConfig: CustomRequestConfig = { loadingRequest: true };
-  constructor(baseURL: string = process.env.APP_API_URL || 'http://localhost:3000') {
+  constructor(baseURL: string = process.env.APP_API_URL || 'https://gym-flow-api-zj7u.onrender.com') {
     this.api = axios.create({
       baseURL,
       headers: {

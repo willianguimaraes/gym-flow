@@ -49,7 +49,7 @@
                             <div class="exercise-progress"> {{ exerciciosConcluidos.length }}/{{
                                 activeWorkout.exercises.length }} </div>
                         </div>
-                        <div v-for="(ex, idx) in activeWorkout.exercises" :key="ex.id" class="exercise-card"
+                        <div v-for="(ex, idx) in activeWorkout.exercises" :key="idx" class="exercise-card"
                             :class="{ active: exercicioAtual === idx, completed: exerciciosConcluidos.includes(idx) }">
 
                             <!-- HEADER -->

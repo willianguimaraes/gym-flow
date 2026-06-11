@@ -56,13 +56,25 @@ const linksList: AppMenuItemProps[] = [
     title: 'Visualizar Treino',
     caption: 'treino diario',
     icon: 'on_device_training',
-    to: '/visualizarTreinos',
+    to: '/visualizarTreino',
   },
   {
     title: 'Gerenciar Exercicios',
     caption: 'criar e editar exercicios',
     icon: 'fitness_center',
     to: '/gerenciarExercicios',
+  },
+  {
+    title: 'Gerenciar Treinos',
+    caption: 'criar e editar treinos',
+    icon: 'exercise',
+    to: '/gerenciarTreinos',
+  },
+  {
+    title: 'Gerenciar Planos',
+    caption: 'criar e editar Planos de treino',
+    icon: 'exercise',
+    to: '/gerenciarPlanos',
   },
 ];
 
